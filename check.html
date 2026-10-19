@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coupe-Fruits · diagnostic</title>
+  <style>
+    body { margin: 0; padding: 32px; background: #1e1b4b; color: #fff; font-family: system-ui, sans-serif; }
+    main { max-width: 720px; margin: 0 auto; }
+    h1 { margin-top: 0; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 10px 14px; margin-bottom: 8px; border-radius: 10px; background: #312e81; }
+    li.ok::before { content: "✅ "; }
+    li.ko::before { content: "❌ "; }
+    li.wait::before { content: "⏳ "; }
+    canvas { width: 100%; border-radius: 12px; background: #000; }
+    #verdict { font-size: 1.3em; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Diagnostic de l'ordinateur</h1>
+    <p>Autorise la webcam, puis montre ta main à la caméra pendant quelques secondes.</p>
+    <ul id="checks"></ul>
+    <p id="verdict"></p>
+    <!-- Pas de display:none : certains navigateurs arrêtent alors la vidéo -->
+    <video id="webcam" playsinline muted style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none"></video>
+    <canvas id="preview" width="640" height="480"></canvas>
+  </main>
+  <script type="module" src="outils/check.js"></script>
+</body>
+</html>
