@@ -1,13 +1,16 @@
-# Étape 5 terminée (branche `etape-05-decoupe`)
+# 🎉 Le jeu est complet ! (branche `etape-06-jeu-complet`)
 
-## Étape 6 — Le jeu complet
+Bravo ! Touche **H** : squelette de la main. Touche **F** : images par seconde.
 
-**Fichier :** `js/game.js` (`spawn`, `updateGame`)
+## Pour aller plus loin : les bonus
 
-**Résultat attendu :** des bombes apparaissent ; en couper une termine la partie ;
-chaque fruit raté coûte une vie ; on peut rejouer en tranchant la pastèque.
+Chaque bonus est une branche qui part de celle-ci. Choisis celui qui te tente.
 
-**Pour aller plus loin :** ajoute un combo, avec un bonus quand plusieurs fruits sont coupés
-d'un même geste.
-
-Solution : `etape-06-jeu-complet`.
+| Branche | Niveau | Contenu |
+|---|---|---|
+| `bonus-sons-effets` | ⭐ | Sons, éclaboussures de jus, combos |
+| `bonus-leaderboard-local` | ⭐ | Pseudo et top 10 des meilleurs scores |
+| `bonus-gestes` | ⭐⭐ | Fermer le poing pour mettre en pause |
+| `bonus-deux-mains` | ⭐⭐ | Une lame par main |
+| `bonus-leaderboard-salle` | ⭐⭐⭐ | Un classement commun à toute la salle, avec un serveur |
+| `bonus-architecture` | ⭐⭐⭐ | Réorganiser le code en classes |
