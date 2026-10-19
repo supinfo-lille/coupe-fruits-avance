@@ -1,13 +1,13 @@
-# Étape 4 terminée (branche `etape-04-fruits`)
+# Étape 5 terminée (branche `etape-05-decoupe`)
 
-## Étape 5 — La découpe
+## Étape 6 — Le jeu complet
 
-**Fichiers :** `js/collision.js` (`segmentHitsCircle`), `js/blade.js` (`getBladeSegment`)
+**Fichier :** `js/game.js` (`spawn`, `updateGame`)
 
-**Résultat attendu :** un geste rapide coupe le fruit en deux et incrémente le score ;
-un geste lent (sous `BLADE_MIN_SPEED`) le traverse sans le couper.
+**Résultat attendu :** des bombes apparaissent ; en couper une termine la partie ;
+chaque fruit raté coûte une vie ; on peut rejouer en tranchant la pastèque.
 
-**Pour aller plus loin :** pourquoi tester un segment plutôt que la seule position du doigt ?
-Le test reste-t-il juste si le fruit bouge beaucoup entre deux images ?
+**Pour aller plus loin :** ajoute un combo, avec un bonus quand plusieurs fruits sont coupés
+d'un même geste.
 
-Solution : `etape-05-decoupe`.
+Solution : `etape-06-jeu-complet`.

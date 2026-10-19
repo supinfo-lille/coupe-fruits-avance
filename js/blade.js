@@ -30,8 +30,7 @@ export function getBladeSegment(time) {
   if (time - b.time > 0.1) return null;
   const duration = b.time - a.time;
   if (duration <= 0) return null;
-  // TODO étape 5 : vitesse du dernier segment, en pixels par seconde.
-  const speed = 0;
+  const speed = Math.hypot(b.x - a.x, b.y - a.y) / duration;
   return { a, b, speed };
 }
 
