@@ -1,13 +1,14 @@
-# Étape 1 terminée (branche `etape-01-webcam`)
+# Étape 2 terminée (branche `etape-02-main`)
 
-## Étape 2 — La main
+## Étape 3 — La lame
 
-**Fichiers :** `js/hand.js` (`detectHand`, `drawHand`), `js/camera.js` (`toScreen`)
+**Fichiers :** `js/blade.js` (`addBladePoint`, `updateBlade`), `js/main.js` (`loop`)
 
-**Résultat attendu :** les 21 points et le squelette suivent la main, du bon côté de l'écran,
-le bout de l'index mis en évidence.
+**Résultat attendu :** une traînée qui suit l'index et s'efface en `BLADE_DURATION` secondes.
+La souris alimente déjà la lame : utilise-la pour tester `blade.js` avant de brancher la main.
+Touche H : squelette.
 
-**Pour aller plus loin :** les landmarks ont aussi une coordonnée `z`. Fais varier la taille
-des points selon la profondeur.
+**Pour aller plus loin :** lisse la position du doigt (moyenne glissante ou filtre exponentiel)
+pour réduire le tremblement. Quel compromis avec la réactivité ?
 
-Solution : `etape-02-main`.
+Solution : `etape-03-lame`.

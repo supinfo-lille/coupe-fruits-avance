@@ -43,8 +43,7 @@ export function detectHand(video) {
   if (video.currentTime !== lastVideoTime) {
     lastVideoTime = video.currentTime;
     const result = landmarker.detectForVideo(video, performance.now());
-    // TODO étape 2 : extraire de result les points de la première main détectée (ou null).
-    lastHand = null;
+    lastHand = result.landmarks.length > 0 ? result.landmarks[0] : null;
   }
   return lastHand;
 }
@@ -62,5 +61,11 @@ export function drawHand(ctx, hand, layout) {
     ctx.stroke();
   }
 
-  // TODO étape 2 : dessiner chacun des 21 points, et mettre en évidence CONFIG.FINGER_TIP.
+  points.forEach((p, index) => {
+    const isTip = index === CONFIG.FINGER_TIP;
+    ctx.fillStyle = isTip ? CONFIG.BLADE_GLOW : "#ffffff";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, isTip ? 9 : 5, 0, Math.PI * 2);
+    ctx.fill();
+  });
 }
