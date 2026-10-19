@@ -5,10 +5,16 @@ import { CONFIG } from "./config.js";
 
 // Demande l'accès à la webcam et lance la vidéo
 export async function startCamera(video) {
-  // TODO étape 1 : obtenir le flux de la caméra frontale, sans audio, à la résolution
-  // définie dans CONFIG, l'attacher à l'élément <video> et attendre le début de la lecture.
-  // Supprime ensuite le throw.
-  throw new Error("Étape 1 à faire : complète startCamera() dans js/camera.js");
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: {
+      width: CONFIG.VIDEO_WIDTH,
+      height: CONFIG.VIDEO_HEIGHT,
+      facingMode: "user",
+    },
+    audio: false,
+  });
+  video.srcObject = stream;
+  await video.play();
 }
 
 // Calcule où placer la vidéo pour qu'elle remplisse tout l'écran
@@ -20,11 +26,22 @@ export function getVideoLayout(video, width, height) {
   return { x: (width - w) / 2, y: (height - h) / 2, w, h };
 }
 
-// Dessine la vidéo dans le canvas
+// Dessine la vidéo retournée horizontalement, comme dans un miroir
 export function drawVideo(ctx, video, layout) {
   ctx.save();
-  // TODO étape 1 : afficher l'image en miroir horizontal (transformations du contexte 2D),
-  // sans changer la zone occupée à l'écran (layout).
-  ctx.drawImage(video, layout.x, layout.y, layout.w, layout.h);
+  ctx.translate(layout.x + layout.w, layout.y);
+  ctx.scale(-1, 1);
+  ctx.drawImage(video, 0, 0, layout.w, layout.h);
   ctx.restore();
+}
+
+// MediaPipe donne des coordonnées entre 0 et 1.
+// Cette fonction les transforme en pixels à l'écran.
+export function toScreen(point, layout) {
+  // TODO étape 2 : la vidéo est affichée en miroir, mais pas ces coordonnées.
+  // Corrige la conversion pour que les points tombent sur la main.
+  return {
+    x: layout.x + point.x * layout.w,
+    y: layout.y + point.y * layout.h,
+  };
 }

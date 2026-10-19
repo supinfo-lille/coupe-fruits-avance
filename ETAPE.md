@@ -1,13 +1,13 @@
-# Point de départ (branche `main`)
+# Étape 1 terminée (branche `etape-01-webcam`)
 
-Lance `check.html`, puis `index.html` : le titre s'affiche, avec un message d'erreur en bas.
+## Étape 2 — La main
 
-## Étape 1 — Webcam
+**Fichiers :** `js/hand.js` (`detectHand`, `drawHand`), `js/camera.js` (`toScreen`)
 
-**Fichier :** `js/camera.js` (`startCamera`, `drawVideo`)
+**Résultat attendu :** les 21 points et le squelette suivent la main, du bon côté de l'écran,
+le bout de l'index mis en évidence.
 
-**Résultat attendu :** la webcam en plein écran, en miroir.
+**Pour aller plus loin :** les landmarks ont aussi une coordonnée `z`. Fais varier la taille
+des points selon la profondeur.
 
-**Pour aller plus loin :** pourquoi `drawVideo` encadre-t-il ses transformations par `save()` / `restore()` ?
-
-Solution : `etape-01-webcam`.
+Solution : `etape-02-main`.
