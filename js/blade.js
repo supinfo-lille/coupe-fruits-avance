@@ -6,14 +6,18 @@ import { CONFIG } from "./config.js";
 // Historique des dernières positions du doigt : { x, y, time }
 const points = [];
 
-// Ajoute une position à l'historique
+// Ajoute une position (on ignore les déplacements de moins d'un pixel)
 export function addBladePoint(x, y, time) {
-  // TODO étape 3 : enregistrer la position dans l'historique.
+  const last = points[points.length - 1];
+  if (last && Math.hypot(x - last.x, y - last.y) < 1) return;
+  points.push({ x, y, time });
 }
 
 // Supprime les positions trop anciennes : c'est ce qui fait disparaître la traînée
 export function updateBlade(time) {
-  // TODO étape 3 : retirer de l'historique les positions plus vieilles que CONFIG.BLADE_DURATION.
+  while (points.length > 0 && time - points[0].time > CONFIG.BLADE_DURATION) {
+    points.shift();
+  }
 }
 
 // Renvoie le dernier morceau de trajectoire et sa vitesse en pixels par seconde.

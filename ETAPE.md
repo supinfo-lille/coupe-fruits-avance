@@ -1,14 +1,12 @@
-# Étape 2 terminée (branche `etape-02-main`)
+# Étape 3 terminée (branche `etape-03-lame`)
 
-## Étape 3 — La lame
+## Étape 4 — Les fruits
 
-**Fichiers :** `js/blade.js` (`addBladePoint`, `updateBlade`), `js/main.js` (`loop`)
+**Fichier :** `js/fruits.js` (`createFruit`, `moveObject`, `isOffScreen`)
 
-**Résultat attendu :** une traînée qui suit l'index et s'efface en `BLADE_DURATION` secondes.
-La souris alimente déjà la lame : utilise-la pour tester `blade.js` avant de brancher la main.
-Touche H : squelette.
+**Résultat attendu :** des fruits variés montent depuis le bas, tournent, retombent, puis disparaissent.
 
-**Pour aller plus loin :** lisse la position du doigt (moyenne glissante ou filtre exponentiel)
-pour réduire le tremblement. Quel compromis avec la réactivité ?
+**Pour aller plus loin :** `createFruit` calcule la vitesse initiale à partir de la hauteur du sommet.
+Retrouve la formule. Que se passe-t-il si `dt` varie beaucoup d'une image à l'autre ?
 
-Solution : `etape-03-lame`.
+Solution : `etape-04-fruits`.
